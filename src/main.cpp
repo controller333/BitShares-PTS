@@ -3496,7 +3496,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
             bool fAlreadyHave = AlreadyHave(inv);
             if (fDebug)
-                printf("  got inventory: %s  %s\n", inv.ToString().c_str(), fAlreadyHave ? "have" : "new pfrom->addr=%s", pfrom->addr.ToString().c_str());
+                printf("  got inventory: %s  %s from %s \n", inv.ToString().c_str(), fAlreadyHave ? "have" : "new",pfrom->addr.ToString().c_str());
 
             if (!fAlreadyHave) {
                 if (!fImporting && !fReindex)
