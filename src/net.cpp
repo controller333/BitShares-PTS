@@ -1410,7 +1410,7 @@ void ThreadOpenAddedConnections()
                 OpenNetworkConnection(addr, &grant, strAddNode.c_str());
                 MilliSleep(500);
             }
-            MilliSleep(12000); // Retry every 2 minutes
+            MilliSleep(2000); // Retry every 2 minutes
         }
     }
 
@@ -1457,7 +1457,7 @@ void ThreadOpenAddedConnections()
             OpenNetworkConnection(CAddress(vserv[i % vserv.size()]), &grant);
             MilliSleep(500);
         }
-        MilliSleep(120000); // Retry every 2 minutes
+        MilliSleep(2000); // Retry every 2 minutes
     }
 }
 
