@@ -822,7 +822,7 @@ void ThreadSocketHandler()
         //
         struct timeval timeout;
         timeout.tv_sec  = 0;
-        timeout.tv_usec = 50000; // frequency to poll pnode->vSend
+        timeout.tv_usec = 10000; // frequency to poll pnode->vSend
 
         fd_set fdsetRecv;
         fd_set fdsetSend;
