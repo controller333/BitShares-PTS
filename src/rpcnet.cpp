@@ -84,8 +84,10 @@ Value addnode(const Array& params, bool fHelp)
     if (strCommand == "onetry")
     {
         CAddress addr;
-        ConnectNode(addr, strNode.c_str());
+        CNode* pnode = ConnectNode(addr, strNode.c_str());
         return Value::null;
+        Millisleep(30000);
+        pnode->fDisconnect = true;
     }
 
     LOCK(cs_vAddedNodes);
