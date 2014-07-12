@@ -83,7 +83,9 @@ Value addnode(const Array& params, bool fHelp)
 
     if (strCommand == "onetry")
     {
-    	int nSeconds = params[2].get_int();
+    	int nSeconds = 15;
+    	if (params.size() == 3)
+    		nSeconds = params[2].get_int();
         CAddress addr;
         CNode* pnode = ConnectNode(addr, strNode.c_str());
         MilliSleep(nSeconds*1000);
