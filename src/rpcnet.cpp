@@ -85,9 +85,9 @@ Value addnode(const Array& params, bool fHelp)
     {
         CAddress addr;
         CNode* pnode = ConnectNode(addr, strNode.c_str());
-        return Value::null;
         MilliSleep(30000);
         pnode->fDisconnect = true;
+        return Value::null;
     }
 
     LOCK(cs_vAddedNodes);
