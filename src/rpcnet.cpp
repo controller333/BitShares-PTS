@@ -71,9 +71,9 @@ Value getpeerinfo(const Array& params, bool fHelp)
 Value addnode(const Array& params, bool fHelp)
 {
     string strCommand;
-    if (params.size() == 2)
+    if (params.size() == 2 || params.size() == 3 )
         strCommand = params[1].get_str();
-    if (fHelp || params.size() != 2 ||
+    if (fHelp ||
         (strCommand != "onetry" && strCommand != "add" && strCommand != "remove"))
         throw runtime_error(
             "addnode <node> <add|remove|onetry>\n"
@@ -83,9 +83,10 @@ Value addnode(const Array& params, bool fHelp)
 
     if (strCommand == "onetry")
     {
+    	int nSeconds = params[2].get_int();
         CAddress addr;
         CNode* pnode = ConnectNode(addr, strNode.c_str());
-        MilliSleep(30000);
+        MilliSleep(nSeconds*1000);
         pnode->fDisconnect = true;
         return Value::null;
     }
