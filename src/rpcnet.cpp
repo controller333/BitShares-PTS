@@ -86,7 +86,7 @@ Value addnode(const Array& params, bool fHelp)
         CAddress addr;
         CNode* pnode = ConnectNode(addr, strNode.c_str());
         return Value::null;
-        Millisleep(30000);
+        MilliSleep(30000);
         pnode->fDisconnect = true;
     }
 
